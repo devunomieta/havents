@@ -35,10 +35,10 @@
                     $href = get_href($link, $currentLanguageInfo->id);
                   @endphp
                   @if (!array_key_exists('children', $link))
-                    <li><a href="{{ $href }}" target="{{ $link['target'] }}">{{ __($link['text']) }}</a></li>
+                    <li><a href="{{ $href }}" target="{{ $link['target'] }}" style="font-weight: bold; font-size: 16px !important">{{ __($link['text']) }}</a></li>
                   @else
                     <li class="dropdown">
-                      <a href="{{ $href }}" target="{{ $link['target'] }}">
+                      <a href="{{ $href }}" target="{{ $link['target'] }}" style="font-weight: bold; font-size: 16px !important">
                         {{ $link['text'] }}
                         <i class="fa fa-angle-down"></i>
                       </a>
@@ -48,7 +48,7 @@
                             $l2Href = get_href($level2, $currentLanguageInfo->id);
                           @endphp
                           <li>
-                            <a href="{{ $l2Href }}" target="{{ $level2['target'] }}">{{ __($level2['text']) }}</a>
+                            <a href="{{ $l2Href }}" target="{{ $level2['target'] }}" style="font-weight: bold; font-size: 16px !important">{{ __($level2['text']) }}</a>
                           </li>
                         @endforeach
                       </ul>
@@ -107,32 +107,32 @@
 
                 <!-- Testing -->
                 <div class="dropdown">
-                    <button type="button" class="menu-btn dropdown-toggle mr-1" data-toggle="dropdown">
+                    <button type="button" class="menu-btn dropdown-toggle mr-1" style="font-weight: bold; font-size: 16px" data-toggle="dropdown">
                         @if (Auth::guard('customer')->check())
                             {{ Auth::guard('customer')->user()->username }}
                         @elseif (Auth::guard('organizer')->check())
                             {{ Auth::guard('organizer')->user()->username }}
                         @else
-                            {{ __('Dashboards') }} 
+                            {{ __('My Dashboard') }} 
                         @endif
                     </button>
 
                     <div class="dropdown-menu">
                         @if (Auth::guard('customer')->check()) 
-                            <a class="dropdown-item" href="{{ route('customer.dashboard') }}">{{ __('My Dashboard') }}</a>
+                            <a class="dropdown-item" href="{{ route('customer.dashboard') }}">{{ __('My Account') }}</a>
                             <a class="dropdown-item" href="{{ route('customer.logout') }}">{{ __('Logout') }}</a>
                         @elseif (!Auth::guard('organizer')->check()) 
                             <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold;  color: #411472">For Attendees</p>
-                            <a class="dropdown-item" href="{{ route('customer.login') }}">{{ __('Sign in') }}</a>
+                            <a class="dropdown-item" href="{{ route('customer.login') }}">{{ __('Sign-in') }}</a>
                             <a class="dropdown-item" href="{{ route('customer.signup') }}">{{ __('Create Account') }}</a>
                         @endif
                         
                         @if (Auth::guard('organizer')->check())
-                            <a class="dropdown-item" href="{{ route('organizer.dashboard') }}">{{ __('My Dashboard') }}</a>
+                            <a class="dropdown-item" href="{{ route('organizer.dashboard') }}">{{ __('My Account') }}</a>
                             <a class="dropdown-item" href="{{ route('organizer.logout') }}">{{ __('Logout') }}</a>
                         @elseif (!Auth::guard('customer')->check())
                             <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold; margin-top: 5px; color: #411472">For Organizers</p>
-                            <a class="dropdown-item" href="{{ route('organizer.login') }}">{{ __('Sign in') }}</a>
+                            <a class="dropdown-item" href="{{ route('organizer.login') }}">{{ __('Sign-in') }}</a>
                             <a class="dropdown-item" href="{{ route('organizer.signup') }}">{{ __('Create Account') }}</a>
                         @endif
                     </div>

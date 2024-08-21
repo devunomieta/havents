@@ -27,7 +27,7 @@
         {{ $heroSection ? $heroSection->second_title : __('This is an affordable and powerful event ticketing platform for event organisers, promoters, and managers. Easily create, promote and sell tickets to your events of every type and size.') }}
       </p>
       <form id="event-search" class="event-search mt-35" name="event-search" action="{{ route('events') }}" method="get">
-        <div class="search-item">
+        <div class="search-item" style="border-radius: 5px 0px 0px 5px;">
           <label for="borwseby"><i class="fas fa-list"></i></label>
           <select name="category" id="borwseby">
             <option value="" style="font-size: 12px">{{ __('Event Categories') }}</option>
@@ -36,11 +36,11 @@
             @endforeach
           </select>
         </div>
-        <div class="search-item">
+        <div class="search-item" style="border-radius: 0px 5px 5px 0px;">
           <label for="search"><i class="fas fa-search"></i></label>
           <input type="search" id="search" name="search-input" placeholder="{{ __('Search Anything') }}">
         </div>
-        <button type="submit" class="theme-btn">{{ $heroSection ? $heroSection->first_button : __('Search') }}</button>
+        <button type="submit" class="theme-btn" style="border-radius: 5px;">{{ $heroSection ? $heroSection->first_button : __('Search') }}</button>
       </form>
     </div>
   </div>
