@@ -61,7 +61,7 @@
             
             
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-                <p>{{ __('Remembered Password') . '?' }} <a class="text-info" href="{{ route('organizer.login') }}" style="color: #ff134B !important">{{ __('Login Now') }}</a></p>
+                <p>{{ __('Remembered Password') . '?' }} <a class="text-info" href="{{ route('organizer.login') }}" style="color: #f8cabd !important">{{ __('Login Now') }}</a></p>
             </div>
             
             

@@ -54,7 +54,7 @@
             @csrf
             
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-                <p>{{ __('Already have an account') . '?' }} <a class="text-info" href="{{ route('customer.login') }}" style="color: #FF134B !important">{{ __('Login Now') }}</a></p>
+                <p>{{ __('Already have an account') . '?' }} <a class="text-info" href="{{ route('customer.login') }}" style="color: #f8cabd !important">{{ __('Login Now') }}</a></p>
             </div>
             
             <div class="row">
@@ -103,7 +103,7 @@
                         <div class="input-group">
                             <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Enter Password') }}">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="background-color: #411472">
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="background-color: #653038">
                                     <i class="fa fa-eye" aria-hidden="true"></i> 
                                 </button>
                             </div>
@@ -120,7 +120,7 @@
                         <div class="input-group">
                             <input type="password" name="password_confirmation" id="re-password" class="form-control" placeholder="{{ __('Re-enter Password') }}">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="toggleRePassword" style="background-color: #411472">
+                                <button class="btn btn-outline-secondary" type="button" id="toggleRePassword" style="background-color: #653038">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
                                 </button>
                             </div>

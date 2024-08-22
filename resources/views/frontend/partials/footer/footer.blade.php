@@ -25,7 +25,7 @@
                   $footer_text = str_replace('{year}', $date, $footerInfo->copyright_text);
               }
             @endphp
-            <hr>
+            <hr style="border-color: #f8cabd">
             <p>{!! !empty($footerInfo->copyright_text) ? $footer_text : '' !!}</p>
           </div>
         </div>

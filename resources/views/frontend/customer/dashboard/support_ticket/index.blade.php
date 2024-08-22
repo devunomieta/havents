@@ -54,7 +54,7 @@
                 <div class="account-info">
                   <div class="title">
                     <h4>{{ __('My Tickets') }}</h4>
-                    <p class="text-right"><a href="{{ route('customer.support_tickert.create') }}" style="border-color: #ff134b;"
+                    <p class="text-right"><a href="{{ route('customer.support_tickert.create') }}" style="border-color: #f8cabd;"
                         class="btn btn-success btn-sm"><i class="fas fa-plus"></i> {{ __('Submit Ticket') }}</a></p>
                   </div>
                   <div class="main-info">
@@ -112,8 +112,8 @@
   <!--====== End Dashboard Section ======-->
 <style>
     .btn-success:hover{
-        background-color: #411472 !important;
-        border-color: #411472 !important;
+        background-color: #653038 !important;
+        border-color: #653038 !important;
     }
 </style>
 @endsection

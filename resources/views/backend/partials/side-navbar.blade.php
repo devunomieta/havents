@@ -821,7 +821,7 @@
                                 </li>
 
                                 <li
-                                    class="{{ request()->routeIs('admin.basic_settings.footer_logo') ? 'active' : '' }}">
+                                    class="d-none {{ request()->routeIs('admin.basic_settings.footer_logo') ? 'active' : '' }}">
                                     <a href="{{ route('admin.basic_settings.footer_logo') }}">
                                         <span class="sub-item">{{ __('Footer Logo') }}</span>
                                     </a>
@@ -1001,7 +1001,7 @@
                 {{-- footer --}}
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Footer', $rolePermissions)))
                     <li
-                        class="d-none nav-item @if (request()->routeIs('admin.footer.content')) active
+                        class="nav-item @if (request()->routeIs('admin.footer.content')) active
             @elseif (request()->routeIs('admin.footer.quick_links')) active
             @elseif (request()->routeIs('admin.contact.page')) active @endif">
                         <a data-toggle="collapse" href="#footer">

@@ -40,8 +40,8 @@
 :root {
     scroll-behavior: auto;
     --base-color: #454545;
-    --heading-color: #030A15;
-    --primary-color: #411472;
+    --heading-color: #653038;
+    --primary-color: #653038;
     --light-color: #F7F7F7;
     --base-font: 'Roboto', sans-serif;
     --heading-font: 'Raleway', sans-serif;
@@ -2993,7 +2993,7 @@ blockquote {
 
 .cookie-consent {
     position: fixed;
-    background-color: #411472;
+    background-color: #653038;
     bottom: 0px;
     width: 50%;
     padding: 15px 0px;
@@ -3010,8 +3010,8 @@ blockquote {
 button.cookie-consent__agree {
     padding: 5px 16px;
     border: none;
-    background-color: #FF134B;
-    color: #fff;
+    background-color: #f8cabd;
+    color: #000;
     cursor: pointer;
     border-radius: 3px;
     font-size: 14px;

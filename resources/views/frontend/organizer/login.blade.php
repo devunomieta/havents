@@ -60,7 +60,7 @@
             @csrf
             
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-              <p>{{ __("Don't have an account") . '?' }} <a class="text-info" href="{{ route('organizer.signup') }}" style="color: #ff134B !important">{{ __('Create Now') }}</a></p>
+              <p>{{ __("Don't have an account") . '?' }} <a class="text-info" href="{{ route('organizer.signup') }}" style="color: #f8cabd !important">{{ __('Create Now') }}</a></p>
             </div>
             
             <div class="form-group">
@@ -76,7 +76,7 @@
                 <div class="input-group">
                     <input type="password" name="password" id="password" class="form-control" placeholder="{{ __('Enter Password') }}">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="background-color: #411472">
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword" style="background-color: #653038">
                             <i class="fa fa-eye" aria-hidden="true"></i> 
                         </button>
                     </div>
@@ -97,7 +97,7 @@
             @endif
             
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-                <p>{{ __("Forgot your Password") . '?' }} <a class="text-info" href="{{ route('organizer.forget.password') }}" style="color: #ff134B !important">{{ __('Reset') }}</a></p>
+                <p>{{ __("Forgot your Password") . '?' }} <a class="text-info" href="{{ route('organizer.forget.password') }}" style="color: #f8cabd !important">{{ __('Reset') }}</a></p>
             </div>
 
             <div class="form-group mb-0">

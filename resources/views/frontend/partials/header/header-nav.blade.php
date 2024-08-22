@@ -122,7 +122,7 @@
                             <a class="dropdown-item" href="{{ route('customer.dashboard') }}">{{ __('My Account') }}</a>
                             <a class="dropdown-item" href="{{ route('customer.logout') }}">{{ __('Logout') }}</a>
                         @elseif (!Auth::guard('organizer')->check()) 
-                            <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold;  color: #411472">For Attendees</p>
+                            <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold;  color: #653038">For Attendees</p>
                             <a class="dropdown-item" href="{{ route('customer.login') }}">{{ __('Sign-in') }}</a>
                             <a class="dropdown-item" href="{{ route('customer.signup') }}">{{ __('Create Account') }}</a>
                         @endif
@@ -131,7 +131,7 @@
                             <a class="dropdown-item" href="{{ route('organizer.dashboard') }}">{{ __('My Account') }}</a>
                             <a class="dropdown-item" href="{{ route('organizer.logout') }}">{{ __('Logout') }}</a>
                         @elseif (!Auth::guard('customer')->check())
-                            <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold; margin-top: 5px; color: #411472">For Organizers</p>
+                            <p class="dropdown-item" style="margin-bottom: 0px; font-weight: bold; margin-top: 5px; color: #653038">For Organizers</p>
                             <a class="dropdown-item" href="{{ route('organizer.login') }}">{{ __('Sign-in') }}</a>
                             <a class="dropdown-item" href="{{ route('organizer.signup') }}">{{ __('Create Account') }}</a>
                         @endif
