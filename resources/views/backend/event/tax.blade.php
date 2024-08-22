@@ -47,9 +47,9 @@
             <div class="row">
               <div class="col-lg-6 offset-lg-3">
                 <div class="form-group">
-                  <label>{{ __('Fixed Charge') }}</label>
-                  <input disabled type="number" step="0.01" class="form-control" name="tax"
-                    value="{{ $content->tax != null ? $content->tax : '' }}" placeholder="{{ __('Fixed: N300') }}">
+                  <label>{{ __('VAT Charge') }} (%)</label>
+                  <input type="number" step="0.01" class="form-control" name="tax"
+                    value="{{ $content->tax != null ? $content->tax : '' }}" placeholder="{{ __('Enter VAT') }}">
                   @error('tax')
                     <p class="mt-2 mb-0 text-danger">{{ $message }}</p>
                   @enderror

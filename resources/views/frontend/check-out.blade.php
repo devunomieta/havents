@@ -243,28 +243,23 @@
                     </li>
                   @endif
 
-                  <?php
-                    if (Session::has('total_early_bird_dicount')) {
+                  @php
+                    if (Session::get('total_early_bird_dicount') != '') {
                         $subtotal = Session::get('sub_total') - (Session::get('total_early_bird_dicount') + Session::get('discount'));
                     } else {
-                        $subtotal = Session::get('sub_total') - Session::get('discount'); 
-                    
+                        $subtotal = Session::get('sub_total') - Session::get('discount');
                     }
-                    
-                    // Fixed tax amount
-                    $tax = 300; 
-                    ?>
-                    
-                    <li>
-                        <span class="text">{{ __('Fixed Charge') }} </span> 
-                        <span class="number" dir="ltr">
-                            <span class="text-danger">
-                                <strong>+</strong>
-                                {{ symbolPrice($tax) }}
-                            </span>
-                        </span>
-                    </li>
-                  
+                    $tax = ($subtotal * $basicData->tax) / 100;
+                    $tax = round($tax, 2);
+                  @endphp
+                  <li><span class="text">{{ __('VAT') }} (<span
+                        dir="ltr">{{ $basicData->tax }}%</span>)</span> <span class="number" dir="ltr">
+                      <span class="text-danger">
+                        <strong>+</strong>
+                        {{ symbolPrice($tax) }}
+                      </span>
+                    </span>
+                  </li>
                   <li><span class="text">{{ __('Total') }}</span> <span class="number" dir="ltr">
                       @php
                         $symbol_total = Session::get('sub_total') - (Session::get('discount') + Session::get('total_early_bird_dicount')) + $tax;

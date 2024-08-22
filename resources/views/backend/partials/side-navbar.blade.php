@@ -980,7 +980,7 @@
 
 
                                 <li
-                                    class="d-none {{ request()->routeIs('admin.home_page.about_us_section') ? 'active' : '' }}">
+                                    class="{{ request()->routeIs('admin.home_page.about_us_section') ? 'active' : '' }}">
                                     <a
                                         href="{{ route('admin.home_page.about_us_section', ['language' => $defaultLang->code]) }}">
                                         <span class="sub-item">{{ __('About Us Section') }}</span>
@@ -988,7 +988,7 @@
                                 </li>
 
                                 <li
-                                    class="d-none {{ request()->routeIs('admin.home_page.section_customization') ? 'active' : '' }}">
+                                    class="{{ request()->routeIs('admin.home_page.section_customization') ? 'active' : '' }}">
                                     <a href="{{ route('admin.home_page.section_customization') }}">
                                         <span class="sub-item">{{ __('Section Hide/Show') }}</span>
                                     </a>
@@ -1001,7 +1001,7 @@
                 {{-- footer --}}
                 @if (is_null($roleInfo) || (!empty($rolePermissions) && in_array('Footer', $rolePermissions)))
                     <li
-                        class=" nav-item @if (request()->routeIs('admin.footer.content')) active
+                        class="d-none nav-item @if (request()->routeIs('admin.footer.content')) active
             @elseif (request()->routeIs('admin.footer.quick_links')) active
             @elseif (request()->routeIs('admin.contact.page')) active @endif">
                         <a data-toggle="collapse" href="#footer">

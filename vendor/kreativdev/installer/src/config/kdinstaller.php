@@ -1,7 +1,7 @@
 <?php 
 
     return [
-        'item_name' => "Havents",
+        'item_name' => "HevaTickets",
         "item_id" => 45659949,
         "vension" => 2.0,
         "released_on" => "2nd March, 2024",
