@@ -91,7 +91,7 @@ class EventController extends Controller
     $rules = [
       'file' => [
         'max:5000', // 10MB in kilobytes
-        'dimensions:min_width=200,max_width=1000', // Add dimension rule
+        'dimensions:min_height=200,max_height=700', // Add dimension rule
         function ($attribute, $value, $fail) use ($img, $allowedExts) {
           $ext = $img->getClientOriginalExtension();
           if (!in_array($ext, $allowedExts)) {
@@ -103,7 +103,7 @@ class EventController extends Controller
 
     $messages = [
       'file.max' => 'The uploaded file has exceeded 5MB ' . $img->getClientOriginalName(),
-      'file.dimensions' => 'The image dimensions are invalid. Minimum Width: 200px, Maximum Width: 1000px' // Add message for dimensions
+      'file.dimensions' => 'The image dimensions are invalid. Minimum Height: 200px, Maximum Height: 700px' // Add message for dimensions
     ];
 
     $validator = Validator::make($request->all(), $rules, $messages);
