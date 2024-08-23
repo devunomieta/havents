@@ -90,7 +90,7 @@ class EventController extends Controller
     $allowedExts = array('jpg', 'png', 'jpeg');
     $rules = [
       'file' => [
-        'max:5000', // 10MB in kilobytes
+        'max:5000', // 5MB in kilobytes
         'dimensions:min_height=200,max_height=700', // Add dimension rule
         function ($attribute, $value, $fail) use ($img, $allowedExts) {
           $ext = $img->getClientOriginalExtension();

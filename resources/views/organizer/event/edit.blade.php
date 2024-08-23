@@ -71,7 +71,7 @@
             <span class="btn-label">
               <i class="fas fa-eye"></i>
             </span>
-            {{ __('Preview') }}
+            {{ __('Preview Event') }}
           </a>
           @if ($event->event_type == 'venue')
             <a class="mr-2 btn btn-secondary btn-sm float-right d-inline-block"
@@ -80,7 +80,7 @@
               <span class="btn-label">
                 <i class="far fa-ticket"></i>
               </span>
-              {{ __('Tickets') }}
+              {{ __('Manage Tickets') }}
             </a>
           @endif
         </div>
@@ -114,7 +114,7 @@
                 <div class=" mb-0" id="errpreimg">
 
                 </div>
-                <p class="text-warning">{{ __('Image Size') . ' : 1170x570' }}</p>
+                <p class="text-warning">{{ __('Recommended Image Size:') . ' Minimum Height: 200px, Maximum Height: 700px and 5MB' }}</p>
               </div>
 
               <form id="eventForm" action="{{ route('organizer.event.update') }}" method="POST"
@@ -137,7 +137,7 @@
                       <input type="file" class="img-input" name="thumbnail">
                     </div>
                   </div>
-                  <p class="text-warning">{{ __('Image Size') . ' : 320x230' }}</p>
+                  <p class="text-warning">{{ __('Recommended Image Size:') . ' : Square 320 x 320 and "<" 5MB' }}</p>
                 </div>
 
                 <div class="row">
@@ -345,7 +345,7 @@
                   </div>
                   <div class="col-lg-4">
                     <div class="form-group">
-                      <label for="">{{ __('Is Feature') . '*' }}</label>
+                      <label for="">{{ __('Show on HomePage') . '*' }}</label>
                       <select name="is_featured" class="form-control">
                         <option selected disabled>{{ __('Select') }}</option>
                         <option value="yes" {{ $event->is_featured == 'yes' ? 'selected' : '' }}>
@@ -360,14 +360,14 @@
 
 
                   @if ($event->event_type == 'venue')
-                    <div class="col-lg-4">
+                    <div class="d-none col-lg-4">
                       <div class="form-group">
                         <label for="">{{ __('Latitude') }}</label>
                         <input type="text" placeholder="{{ __('Latitude') }}" name="latitude"
                           value="{{ $event->latitude }}" class="form-control">
                       </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="d-none col-lg-4">
                       <div class="form-group">
                         <label for="">{{ __('Longitude') }}</label>
                         <input type="text" placeholder="{{ __('Longitude') }}" name="longitude"
@@ -541,8 +541,7 @@
                             data-target="#collapse{{ $language->id }}"
                             aria-expanded="{{ $language->is_default == 1 ? 'true' : 'false' }}"
                             aria-controls="collapse{{ $language->id }}">
-                            {{ $language->name . ' ' . __('Language') }}
-                            {{ $language->is_default == 1 ? '(' . __('Default') . ')' : '' }}
+                            {{ __('Event Details') }}
                           </button>
                         </h5>
                       </div>
@@ -602,7 +601,7 @@
                               </div>
                               <div class="col-lg-4">
                                 <div class="form-group">
-                                  <label for="">{{ __('County') . '*' }}</label>
+                                  <label for="">{{ __('Country') . '*' }}</label>
                                   <input type="text" name="{{ $language->code }}_country"
                                     placeholder="{{ __('Enter Country') }}"
                                     class="form-control {{ $language->direction == 1 ? 'rtl text-right' : '' }}"
@@ -660,7 +659,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                <label>{{ __('Meta Keywords') }}</label>
+                                <label>{{ __('SEO Meta Keywords') }}</label>
                                 <input class="form-control" name="{{ $language->code }}_meta_keywords"
                                   value="{{ @$event_content->meta_keywords }}"
                                   placeholder="{{ __('Enter Meta Keywords') }}" data-role="tagsinput">
@@ -671,7 +670,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                <label>{{ __('Meta Description') }}</label>
+                                <label>{{ __('SEO Meta Description') }}</label>
                                 <textarea class="form-control" name="{{ $language->code }}_meta_description" rows="5"
                                   placeholder="{{ __('Enter Meta Description') }}">{{ @$event_content->meta_description }}</textarea>
                               </div>
@@ -713,7 +712,7 @@
           <div class="row">
             <div class="col-12 text-center">
               <button type="submit" id="EventSubmit" class="btn btn-primary">
-                {{ __('Update') }}
+                {{ __('Update Event') }}
               </button>
             </div>
           </div>

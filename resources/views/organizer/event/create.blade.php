@@ -62,7 +62,7 @@
                 <div class=" mb-0" id="errpreimg">
 
                 </div>
-                <p class="text-warning">{{ __('Recommended Image Size:') . ' 1170x570 and 5MB' }}</p>
+                <p class="text-warning">{{ __('Recommended Image Size:') . ' Minimum Height: 200px, Maximum Height: 700px and 5MB' }}</p>
               </div>
               <form id="eventForm" action="{{ route('organizer.event_management.store_event') }}" method="POST"
                 enctype="multipart/form-data">
@@ -81,7 +81,7 @@
                       <input type="file" class="img-input" name="thumbnail">
                     </div>
                   </div>
-                  <p class="text-warning">{{ __('Recommended Image Size:') . ' : 320x230 and 5MB' }}</p>
+                  <p class="text-warning">{{ __('Recommended Image Size:') . ' : Square 320 x 320 and "<" 5MB' }}</p>
                 </div>
 
                 <div class="row">
@@ -437,7 +437,7 @@
                               </div>
                               <div class="col-lg-4">
                                 <div class="form-group">
-                                  <label for="">{{ __('County') . '*' }}</label>
+                                  <label for="">{{ __('Country') . '*' }}</label>
                                   <input type="text" name="{{ $language->code }}_country"
                                     placeholder="{{ __('Enter Country') }}"
                                     class="form-control {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
@@ -493,7 +493,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                <label>{{ __('Meta Keywords') }}</label>
+                                <label>{{ __('SEO Meta Keywords') }}</label>
                                 <input class="form-control" name="{{ $language->code }}_meta_keywords"
                                   placeholder="{{ __('Enter Meta Keywords') }}" data-role="tagsinput">
                               </div>
@@ -503,7 +503,7 @@
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="form-group {{ $language->direction == 1 ? 'rtl text-right' : '' }}">
-                                <label>{{ __('Meta Description') }}</label>
+                                <label>{{ __('SEO Meta Description') }}</label>
                                 <textarea class="form-control" name="{{ $language->code }}_meta_description" rows="5"
                                   placeholder="{{ __('Enter Meta Description') }}"></textarea>
                               </div>
@@ -545,7 +545,7 @@
           <div class="row">
             <div class="col-12 text-center">
               <button type="submit" id="EventSubmit" class="btn btn-success">
-                {{ __('Save') }}
+                {{ __('Create Event') }}
               </button>
             </div>
           </div>
