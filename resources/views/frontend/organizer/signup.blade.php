@@ -172,18 +172,17 @@
 
 <script>
 function validateName(input, errorId, required) {
-    const regex = /^[a-zA-Z]{3,}$/;
+    const regex = /^[a-zA-Z\s]*[a-zA-Z]{3,}[a-zA-Z\s]*$/; 
     const errorElement = document.getElementById(errorId);
 
     if (required && input.value.trim() === '') {
         errorElement.textContent = "This field is required.";
         errorElement.style.display = "block";
     } else if (input.value.trim() !== '' && !regex.test(input.value)) {
-        errorElement.textContent = "Must contain only letters and be at least 3 characters long.";
+        errorElement.textContent = "Must contain at least 3 letters."; 
         errorElement.style.display = "block";
     } else {
         errorElement.style.display = "none";
     }
-}
-</script>
+}</script>
 @endsection

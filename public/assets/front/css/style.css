@@ -1025,6 +1025,15 @@ a.theme-btn:hover {
     margin-top: 20px;
 }
 
+.event-details-images {
+    text-align: center !important; /* Centers the container itself */
+}
+
+.event-details-images img {
+    display: inline-block !important; /* Allows setting margins for horizontal centering */
+    margin: 0 auto !important; /* Centers the images horizontally */
+}
+
 .event-details-image .buttons {
     position: absolute;
     top: 20px;
