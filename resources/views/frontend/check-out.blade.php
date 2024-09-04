@@ -44,7 +44,7 @@
                         <label for="fname"> {{ __('First Name') }} *</label>
                         <input type="text" name="fname" id="fname" value="{{ old('fname') }}" class="form-control"
                                placeholder="{{ __('Enter Your First Name')}}"
-                               oninput="validateName(this, 'fnameError', true)"> 
+                               oninput="validateName(this, 'fnameError', true)"/> 
                         <p id="fnameError" class="text-danger" style="display: none;"></p> 
                     </div>
                 </div>
@@ -249,8 +249,13 @@
                     } else {
                         $subtotal = Session::get('sub_total') - Session::get('discount');
                     }
-                    $tax = ($subtotal * $basicData->tax) / 100;
-                    $tax = round($tax, 2);
+                    
+                    if ($subtotal > 99999) {
+                        $tax = 7500; 
+                    } else {
+                        $tax = ($subtotal * $basicData->tax) / 100;
+                        $tax = round($tax, 2);
+                    }
                   @endphp
                   <li><span class="text">{{ __('VAT') }} (<span
                         dir="ltr">{{ $basicData->tax }}%</span>)</span> <span class="number" dir="ltr">

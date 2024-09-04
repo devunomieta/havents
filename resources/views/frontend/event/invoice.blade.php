@@ -49,7 +49,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="logo text-center" style="margin-bottom: {{ $mb }};">
-          <img src="{{ asset('assets/admin/img/' . $websiteInfo->logo) }}" alt="Company Logo">
+          <img src="{{ asset('assets/admin/img/' . $websiteInfo->logo) }}" alt="Company Logo" style="max-width: 200px !important;">
         </div>
 
 
@@ -122,7 +122,7 @@
 
               <p>
                 {{ __('Tax') }} ({{ $bookingInfo->tax_percentage }}%) : <span
-                  class="text-muted">{{ $position == 'left' ? $currency . ' ' : '' }}{{ is_null($bookingInfo->tax) ? '0.00' : $bookingInfo->tax }}{{ $position == 'right' ? ' ' . $currency : '' }}</span>
+                  class="d-none text-muted">{{ $position == 'left' ? $currency . ' ' : '' }}{{ is_null($bookingInfo->tax) ? '0.00' : $bookingInfo->tax }}{{ $position == 'right' ? ' ' . $currency : '' }}</span>
               </p>
 
 
