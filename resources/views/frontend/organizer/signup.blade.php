@@ -184,5 +184,6 @@ function validateName(input, errorId, required) {
     } else {
         errorElement.style.display = "none";
     }
-}</script>
+}
+</script>
 @endsection

@@ -634,35 +634,43 @@ class OrganizerController extends Controller
   {
     return view('organizer.pwa.index');
   }
-  //check_qrcode
   public function check_qrcode(Request $request)
-  {
-    $booking_id = $request->booking_id;
-    $check = Booking::where('booking_id', $booking_id)->first();
-    if ($check) {
-      if ($check->scan_status == 1) {
-        return response()->json(['alert_type' => 'error', 'message' => 'Already Scanned', 'booking_id' => $check->booking_id]);
-      } else {
-        if ($check->paymentStatus == 'completed') {
-          $check->update([
-            'scan_status' => 1
-          ]);
-          return response()->json(['alert_type' => 'success', 'message' => 'Verified', 'booking_id' => $check->booking_id]);
-        } elseif ($check->paymentStatus == 'free') {
-          $check->update([
-            'scan_status' => 1
-          ]);
-          return response()->json(['alert_type' => 'success', 'message' => 'Verified', 'booking_id' => $check->booking_id]);
-        } elseif ($check->paymentStatus == 'pending') {
-          return response()->json(['alert_type' => 'error', 'message' => 'Payment incomplete', 'booking_id' => $check->booking_id]);
-        } elseif ($check->paymentStatus == 'rejected') {
-          return response()->json(['alert_type' => 'error', 'message' => 'Payment Rejected', 'booking_id' => $check->booking_id]);
+    {
+        $booking_id = $request->booking_id;
+        $check = Booking::where('booking_id', $booking_id)->first();
+    
+        if ($check) {
+            // Get the currently logged-in organizer
+            $organizer = auth()->user(); // Assuming you're using an authentication system
+    
+            // Check if the booking belongs to the logged-in organizer
+            if ($check->organizer_id != auth()->user()->id) { 
+                return response()->json(['alert_type' => 'error', 'message' => 'Ticket is not for this event']);
+            }
+    
+            if ($check->scan_status == 1) {
+                return response()->json(['alert_type' => 'error', 'message' => 'Already Scanned', 'booking_id' => $check->booking_id]);
+            } else {
+                if ($check->paymentStatus == 'completed') {
+                    $check->update([
+                        'scan_status' => 1
+                    ]);
+                    return response()->json(['alert_type' => 'success', 'message' => 'Verified, issue '. $check->quantity . 'ticket(s) as shown on receipt.', 'booking_id' => $check->booking_id]);
+                } elseif ($check->paymentStatus == 'free') {
+                    $check->update([
+                        'scan_status' => 1
+                    ]);
+                    return response()->json(['alert_type' => 'success', 'message' => 'Verified, issue '. $check->quantity . 'ticket(s) as shown on receipt.', 'booking_id' => $check->booking_id]);
+                } elseif ($check->paymentStatus == 'pending') {
+                    return response()->json(['alert_type' => 'error', 'message' => 'Payment incomplete', 'booking_id' => $check->booking_id]);
+                } elseif ($check->paymentStatus == 'rejected') {
+                    return response()->json(['alert_type' => 'error', 'message' => 'Payment Rejected', 'booking_id' => $check->booking_id]);
+                }
+            }
+        } else {
+            return response()->json(['alert_type' => 'error', 'message' => 'Unverified']);
         }
-      }
-    } else {
-      return response()->json(['alert_type' => 'error', 'message' => 'Unverified']);
     }
-  }
 
   public function changeTheme(Request $request)
   {

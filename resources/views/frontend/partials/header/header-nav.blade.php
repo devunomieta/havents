@@ -1,7 +1,7 @@
 <header class="main-header">
 
   <!--Header-Upper-->
-  <div class="header-upper py-25">
+  <div class="header-upper py-25" style="padding-top: 5px !important; padding-bottom: 5px !important;">
     <div class="container clearfix">
 
       <div class="header-inner">

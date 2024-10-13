@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('organizer/pwa/', 'BackEnd\Organizer\OrganizerController@pwa')->name('organizer.pwa');
-Route::post('organizer/check-qrcode/', 'BackEnd\Organizer\OrganizerController@check_qrcode')->name('check-qrcode');
+// Route::get('organizer/pwa/', 'BackEnd\Organizer\OrganizerController@pwa')->name('organizer.pwa');
+// Route::post('organizer/check-qrcode/', 'BackEnd\Organizer\OrganizerController@check_qrcode')->name('check-qrcode');
 
 Route::get('organizers/email/verify', 'BackEnd\Organizer\OrganizerController@confirm_email');
 
@@ -31,6 +31,9 @@ Route::prefix('/organizer')->group(function () {
 });
 
 Route::prefix('/organizer')->middleware('auth:organizer', 'Deactive:organizer', 'EmailStatus:organizer', 'adminLang')->group(function () {
+    
+  Route::get('/pwa/', 'BackEnd\Organizer\OrganizerController@pwa')->name('organizer.pwa');
+  Route::post('/check-qrcode/', 'BackEnd\Organizer\OrganizerController@check_qrcode')->name('check-qrcode');
   Route::get('/dashboard', 'BackEnd\Organizer\OrganizerController@index')->name('organizer.dashboard');
   Route::get('monthly-income', 'BackEnd\Organizer\OrganizerController@monthly_income')->name('organizer.monthly_income');
   Route::get('/transaction', 'BackEnd\Organizer\OrganizerController@transaction')->name('organizer.transcation');

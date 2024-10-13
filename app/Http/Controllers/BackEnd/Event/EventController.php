@@ -100,12 +100,12 @@ class EventController extends Controller
 
     $messages = [
       'file.max' => 'The uploaded file has exceeded 5MB ' . $img->getClientOriginalName(),
-      'file.dimensions' => 'The image dimensions are invalid. Minimum Height: 200px, Maximum: 700px' // Add message for dimensions
+      'file.dimensions' => 'The image dimensions are invalid. Minimum Height: 200px, Maximum Height: 700px' // Add message for dimensions
     ];
 
     $validator = Validator::make($request->all(), $rules, $messages);
     if ($validator->fails()) {
-      $validator->getMessageBag()->add('error', 'true'); 
+      $validator->getMessageBag()->add('error', 'true');
       return response()->json($validator->errors());
     }
     $filename = uniqid() . '.jpg';

@@ -171,8 +171,8 @@ class EventController extends Controller
           ->select('events.*', 'event_contents.title', 'event_contents.slug as eventSlug', 'event_contents.description', 'meta_keywords', 'meta_description', 'event_contents.event_category_id', 'event_categories.name', 'event_categories.slug', 'event_contents.city', 'event_contents.state', 'event_contents.country', 'event_contents.address', 'event_contents.zip_code', 'event_contents.refund_policy')
           ->first();
         if (is_null($content)) {
-          Session::flash('alert-type', 'warning');
-          Session::flash('message', 'No event content found for ' . $language->name . ' Language');
+          Session::flash('alert-type', 'success');
+          Session::flash('message', 'Loading Complete');
           return redirect()->route('index');
         }
       } else {
@@ -185,8 +185,8 @@ class EventController extends Controller
           ->select('events.*', 'event_contents.title', 'event_contents.slug as eventSlug', 'event_contents.description', 'meta_keywords', 'meta_description', 'event_contents.event_category_id', 'event_categories.name', 'event_categories.slug', 'tickets.price', 'tickets.variations', 'tickets.pricing_type', 'event_contents.city', 'event_contents.state', 'event_contents.country', 'event_contents.address', 'event_contents.zip_code', 'event_contents.refund_policy')
           ->first();
         if (is_null($content)) {
-          Session::flash('alert-type', 'warning');
-          Session::flash('message', 'No event content found for ' . $language->name . ' Language');
+          Session::flash('alert-type', 'success');
+          Session::flash('message', 'Loading Complete');
           return redirect()->route('index');
         }
       }

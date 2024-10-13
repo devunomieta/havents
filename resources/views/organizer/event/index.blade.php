@@ -117,7 +117,7 @@
 
                             @if (count($events) == 0)
                                 <h3 class="text-center mt-2">
-                                    {{ __('NO EVENT CONTENT FOUND FOR ') . $language->name . '!' }}</h3>
+                                    {{ __('NO EVENT CONTENT FOUND!') }}</h3>
                             @else
                                 <div class="table-responsive">
                                     <table class="table table-striped mt-3" id="">

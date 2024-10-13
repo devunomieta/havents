@@ -57,7 +57,7 @@
             @if ($input == 'checkout')
               <div class="form-group w-100">
                 <a href="{{ route('shop.checkout', ['type' => 'guest']) }}"
-                  class="btn btn-success d-block" style="background-color: #f8cabd !important; color: #fff;">{{ __('Proceed without an Account') }}</a>
+                  class="btn btn-success d-block" style="background-color: #653038 !important; color: #fff; border-color: #653038 !important;">{{ __('Continue without an Account') }}</a>
               </div>
             @endif
           @endif
@@ -69,7 +69,7 @@
             @if (request()->input('redirectPath') == 'event_checkout')
               <div class="form-group w-100">
                 <a href="{{ route('check-out', ['type' => 'guest']) }}"
-                  class="btn btn-success d-block" style="background-color: #f8cabd !important; color: #fff;">{{ __('Proceed without an Account') }}</a>
+                  class="btn btn-success d-block" style="background-color: #653038 !important; color: #fff; border-color: #653038 !important;">{{ __('Continue without an Account') }}</a>
               </div>
             @endif
           @endif
@@ -107,7 +107,7 @@
             @endif
             
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-              <p>{{ __("Don't have an account") . '?' }} <a class="text-info" href="{{ route('customer.signup') }}" style="color: #f8cabd !important">{{ __('Create Now') }}</a></p>
+              <p>{{ __("Don't have an account") . '?' }} <a class="text-info" href="{{ route('customer.signup') }}" style="color: #653038 !important">{{ __('Create Now') }}</a></p>
             </div>
             
             <div class="form-group">
@@ -146,7 +146,7 @@
             @endif
 
             <div class="form-group mt-3 d-flex justify-content-between mb-0" style="font-size: 14px">
-                <p>{{ __("Forgot your Password") . '?' }} <a class="text-info" href="{{ route('customer.forget.password') }}" style="color: #f8cabd !important">{{ __('Reset') }}</a></p>
+                <p>{{ __("Forgot your Password") . '?' }} <a class="text-info" href="{{ route('customer.forget.password') }}" style="color: #653038 !important">{{ __('Reset') }}</a></p>
             </div>
             
             <div class="form-group mb-0 text-center">

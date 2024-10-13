@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-lg-12">
               @if (count($transcations) == 0)
-                <h3 class="text-center mt-3">{{ __('NO TRANSCATION FOUND') . '!' }}</h3>
+                <h3 class="text-center mt-3">{{ __('NO TRANSACTION FOUND') . '!' }}</h3>
               @else
                 <div class="table-responsive">
                   <table class="table table-striped mt-3">

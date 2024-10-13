@@ -181,13 +181,13 @@
 
             <div class="row mb-2">
               <div class="col-lg-4">
-                <strong>{{ __('Tax') }} <span class="text-danger">({{ $booking->tax_percentage }}%+)</span>
+                <strong>{{ __('Bank Charge') }} <span class="text-danger">({{ $booking->tax_percentage }}%+)</span>
                 </strong>
               </div>
               <div class="col-lg-8">
                 @if (!is_null($booking->tax))
                   {{ $position == 'left' ? $currency . ' ' : '' }}{{ $booking->tax }}{{ $position == 'right' ? ' ' . $currency : '' }}
-                  ({{ __('Received by Admin') }})
+                  ({{ __('Processing Fee') }})
                 @else
                   -
                 @endif
@@ -214,7 +214,7 @@
               <div class="col-lg-8">
                 @if (!is_null($booking->commission))
                   {{ $position == 'left' ? $currency . ' ' : '' }}{{ $booking->commission }}{{ $position == 'right' ? ' ' . $currency : '' }}
-                  ({{ __('Received by Admin') }})
+                  ({{ __('System Commission') }})
                 @else
                   -
                 @endif
@@ -222,7 +222,7 @@
             </div>
             <div class="row mb-2">
               <div class="col-lg-4">
-                <strong>{{ __('Received by Organization') }} </strong>
+                <strong>{{ __('Payable to Organization') }} </strong>
               </div>
               <div class="col-lg-8">
                 @if (!is_null($booking->price - $booking->commission))

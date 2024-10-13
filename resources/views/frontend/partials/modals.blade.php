@@ -40,10 +40,19 @@
             <p>{{ __('linkedin') }}</p>
           </a>
         </div>
-        <div class="mt-3"> 
-            <i class="far fa-copy"></i> 
+        <div class="mt-3" style="display: flex; align-items: center; margin-left: 100px;">
+            <div class="shortenLinkBtn" style="margin-right: 20px;"> 
+                <a href="https://links.hevatickets.com/" target="_blank" data-tooltip="This will copy event link and automatically open a link shortener. Simply paste the copied link and click shorten link!"> 
+                    <i class="fas fa-unlink"></i> 
+                    <span id="shortenLinkText" class="ml-2">Shorten Link</span> 
+                </a>
+            </div>
+        
+            <div class="copyLinkBtn" style="border-left: 1px solid #ccc; padding-left: 20px;"> 
+                <i class="far fa-copy"></i> 
                 <span id="copyLinkText" class="ml-2 copy-link-text">Copy Link</span>
-            <input type="text" id="linkToCopy" value="{{ url()->current() }}" style="opacity: 0; position: absolute;"> 
+                <input type="text" id="linkToCopy" value="{{ url()->current() }}" style="opacity: 0; position: absolute; margin-left: 500px;"> 
+            </div>
         </div>
       </div>
     </div>
@@ -64,9 +73,51 @@
     });
 </script>
 
+<script>
+    document.getElementById('shortenLinkText').addEventListener('click', function() {
+        var linkInput = document.getElementById('linkToCopy');
+        linkInput.select();
+        document.execCommand('copy');
+        
+    });
+</script>
+
 <style>
 .copy-link-text:hover {
     cursor: pointer;
+}
+
+.shortenLinkBtn a[data-tooltip] {
+  position: relative; 
+}
+
+.shortenLinkBtn a[data-tooltip]:before {
+  content: attr(data-tooltip); 
+  visibility: hidden; 
+  opacity: 0;
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; 
+  color: #fff; 
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 300px;
+  text-align: justify;
+  transition: opacity 0.2s; /* Add a smooth transition effect */
+}
+
+.shortenLinkBtn a[data-tooltip]:hover:before {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 768px) { 
+  .mt-3 {
+    margin-left: 50px !important; /* Use !important to override inline styles */
+  }
 }
 </style>
 

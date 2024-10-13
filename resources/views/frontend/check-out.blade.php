@@ -36,7 +36,7 @@
         @csrf
         <div class="row">
           <div class="col-lg-8">
-            <h3 class="from-title mb-25">{{ __('Billing Details') }}</h3>
+            <h3 class="from-title mb-25">{{ __('Checkout Details') }}</h3>
             <hr>
             <div class="row mt-35">
                 <div class="col-sm-6">
@@ -44,13 +44,13 @@
                         <label for="fname"> {{ __('First Name') }} *</label>
                         <input type="text" name="fname" id="fname" value="{{ old('fname') }}" class="form-control"
                                placeholder="{{ __('Enter Your First Name')}}"
-                               oninput="validateName(this, 'fnameError', true)"/> 
+                               oninput="validateName(this, 'fnameError', true)"> 
                         <p id="fnameError" class="text-danger" style="display: none;"></p> 
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="lname"> {{ __('Last Name') }}</label>
+                        <label for="lname"> {{ __('Last Name') }} *</label>
                         <input type="text" name="lname" id="lname" value="{{ old('lname') }}" class="form-control"
                                placeholder="{{ __('Enter Your Last Name') }}"
                                oninput="validateName(this, 'lnameError', false)"> 
@@ -80,13 +80,10 @@
                 </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="state">{{ __('Country') }} *</label>
+                  <label for="state">{{ __('Country') }}</label>
                   <input type="text" name="country"
                     value="{{ old('country', $authUser != null ? $authUser->country : '') }}" class="form-control"
                     placeholder="{{ __('Country') }}">
-                  @error('country')
-                    <p class="text-danger">{{ $message }}</p>
-                  @enderror
                 </div>
               </div>
               <div class="d-none col-sm-6">
@@ -230,7 +227,7 @@
 
 
                   @if (Session::get('total_early_bird_dicount') != '')
-                    <li><span class="text">{{ __('Subtotal') }}</span> <span class="number" dir="ltr">
+                    <li style="margin: 0 !important"><span class="d-none text">{{ __('Subtotal') }}</span> <span class="d-none number" dir="ltr">
 
                         @if (Session::get('total_early_bird_dicount') != '')
                           @php
@@ -249,15 +246,14 @@
                     } else {
                         $subtotal = Session::get('sub_total') - Session::get('discount');
                     }
-                    
                     if ($subtotal > 99999) {
-                        $tax = 7500; 
+                        $tax = 3000; 
                     } else {
                         $tax = ($subtotal * $basicData->tax) / 100;
                         $tax = round($tax, 2);
                     }
                   @endphp
-                  <li><span class="text">{{ __('VAT') }} (<span
+                  <li class="d-none"><span class="text">{{ __('VAT Charge') }} (<span
                         dir="ltr">{{ $basicData->tax }}%</span>)</span> <span class="number" dir="ltr">
                       <span class="text-danger">
                         <strong>+</strong>
@@ -265,9 +261,9 @@
                       </span>
                     </span>
                   </li>
-                  <li><span class="text">{{ __('Total') }}</span> <span class="number" dir="ltr">
+                  <li><span class="text">{{ __('Total Amount') }}</span> <span class="number" dir="ltr">
                       @php
-                        $symbol_total = Session::get('sub_total') - (Session::get('discount') + Session::get('total_early_bird_dicount')) + $tax;
+                        $symbol_total = Session::get('sub_total') - (Session::get('discount') + Session::get('total_early_bird_dicount'));
                       @endphp
                       {{ symbolPrice($symbol_total) }}
                     </span>
@@ -286,7 +282,7 @@
             </div>
 
             @if ($total != 0 || Session::get('sub_total') != 0)
-              <div class="coupon">
+              <div class="d-none coupon">
                 <h4 class="mb-3">{{ __('Coupon') }}</h4>
                 <div class="input-group d-flex">
                   <input type="text" onsubmit="event.preventDefault();" class="form-control" name="coupon"
@@ -300,7 +296,7 @@
               @if (Session::has('paypal_error'))
                 <p class="text-danger">{{ Session::get('paypal_error') }}</p>
                 @php
-                  Session::forget('paypal_error');
+                  Session::forget('paypal_error'); 
                 @endphp
               @endif
               @if (Session::has('error'))

@@ -179,7 +179,7 @@
                           @endphp
 
                           <td>
-                            {{ $position == 'left' ? $symbol . ' ' : '' }}{{ $booking->price + $booking->tax }}{{ $position == 'left' ? ' ' . $symbol : '' }}
+                            {{ $position == 'left' ? $symbol . ' ' : '' }}{{ $booking->price }}{{ $position == 'left' ? ' ' . $symbol : '' }}
                           </td>
                           <td>
                             {{ $position == 'left' ? $symbol . ' ' : '' }}{{ $booking->price - $booking->commission }}{{ $position == 'left' ? ' ' . $symbol : '' }}
