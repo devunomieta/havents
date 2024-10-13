@@ -119,11 +119,11 @@
     </header>
 
 <style>
-  /* ... (your existing CSS) ... */
+  
 
 @media (max-width: 991px) { 
   .navbar-collapse {
-    /* ... (your existing mobile navbar CSS) ... */
+    
     background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
   }
 
@@ -154,7 +154,7 @@
   }
 
   .navbar-collapse .navigation {
-    /* ... (your existing navigation styles) ... */
+
   }
 
   .navbar-collapse .navigation li a {
